@@ -15,7 +15,7 @@ def topics(request):
     return render(request, 'learning_logs/topics.html', context)
 
 def topic(request, topic_id):
-    """ SHow a single topic and all its entries."""
+    """ Show a single topic and all its entries."""
     topic = Topic.objects.get(id=topic_id)
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
@@ -23,7 +23,7 @@ def topic(request, topic_id):
 
 
 
-def new_topc(request):
+def new_topic(request):
     """ Add a new topic."""
     if request.method != 'POST':
         # No data submitter; create a blank form.
@@ -35,6 +35,6 @@ def new_topc(request):
             form.save()
             return redirect('learning_logs:topics')
 
-# Display a blank or valid form
-context = {'form': form}
-return render(request, 'learning_logs/new_topic.html', context)
+    # Display a blank or valid form
+    context = {'form': form}
+    return render(request, 'learning_logs/new_topic.html', context)
