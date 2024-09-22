@@ -34,6 +34,9 @@ INSTALLED_APPS = [
 
     # My apps
     'learning_logs',
+    'accounts',
+
+
 
     "django.contrib.admin",
     "django.contrib.auth",
