@@ -19,4 +19,23 @@ web:
       allow: true
 # The size of the persistent disk of the application (in MB).
 disk: 512
+
+# Set a local read/write mount for logs.
+mounts:
+  "logs":
+    source: local
+    source_path: logs
+
+# The hooks executed at various points in the lifecycle of the appliction.
+hooks:
+  build: |
+    pip install --upgrade pip
+    pip install -r requirements.txt
+    pip install -r requirements_remote.txt
+
+    mkdir logs
+    python manage.py collectstatic
+    rm -rf logs
+  deploy: |
+    python manage.py migrate
   
