@@ -1,0 +1,22 @@
+name: "DJANGO_LEARNING_LOG"
+type: "python3:3.11.2"
+
+relationships:
+  database: "db:postgresql"
+
+# The configuration of the app when it's exposed to the web.
+web:
+  upstream:
+    socket_family: unix
+  commands:
+    start: "gunicorn -w 4 -b unix:$SOCKET DJANGO_LEARNING_LOG.wsgi:application:"
+  locations:
+    "/":
+      passthru: true
+    "/static":
+      root: "static"
+      expires: 1h
+      allow: true
+# The size of the persistent disk of the application (in MB).
+disk: 512
+  
