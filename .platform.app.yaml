@@ -1,5 +1,5 @@
 name: "DJANGO_LEARNING_LOG"
-type: "python3:3.11"
+type: "python:3.11"
 
 relationships:
   database: "db:postgresql"
