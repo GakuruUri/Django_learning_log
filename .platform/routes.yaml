@@ -2,7 +2,7 @@
 
 "https://{default}/":
   type: upstream
-  upstream: "Django_Learning_log:http"
+  upstream: "django-learning-log:http"
 
 "https://www.{default}/":
   type: redirect
