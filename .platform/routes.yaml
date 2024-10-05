@@ -1,0 +1,10 @@
+# Each route describes how an incoming URL will be processed by Platform.sh
+
+"https://{default}/":
+  type: upstream
+  upstream: "Django_Learning_log:http"
+
+"https://www.{default}/":
+  type: redirect
+  to: "https://{default}/"
+
