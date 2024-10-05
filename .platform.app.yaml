@@ -1,4 +1,4 @@
-name: "DJANGO_LEARNING_LOG"
+name: "django-learning-log"
 type: "python:3.11"
 
 relationships:
